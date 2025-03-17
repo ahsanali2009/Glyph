@@ -8,11 +8,11 @@ def form():
             for line in csvFile:
                 if line[0] == inputEmoji:
                     class EmojiProperties:
-                         def __init__(self,emoji,Occurrences,Negative,Positive):
+                         def __init__(self,emoji,Occurrences,Negative,Positive,Neutral):
                             self.emoji = emoji
                             self.Occurrences = Occurrences
                             self.Negative = Negative
                             self.Positive = Positive
+                            self.Neutral = Neutral
                     
-                    return EmojiProperties(line[0], line[2], line[4], line[6])
-                                
+                    return EmojiProperties(line[0], line[2], line[4], line[6], line[5])
