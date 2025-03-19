@@ -1,22 +1,45 @@
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
-let occurrences = document.getElementById("emoji-data").value
+let emojiPropertiesData = document.getElementById("emoji-data").innerText
+let emojiPropertiesData_clean_1 = emojiPropertiesData.replace("(","")
+let emojiPropertiesData_clean_2 = emojiPropertiesData_clean_1.replace(")","")
+let emojiPropertiesData_toArray = emojiPropertiesData_clean_2.split(",")
+
 
 function drawChart() {
+
+// Assign Values...  
+let occurences_value = (emojiPropertiesData_toArray[0].replace(/'/g,""))
+let positive_value = (emojiPropertiesData_toArray[1].replace(/'/g,"")) 
+let negative_value = (emojiPropertiesData_toArray[2].replace(/'/g,"")) 
+let neutral_value = (emojiPropertiesData_toArray[3].replace(/'/g,"")) 
+
+console.log(occurences_value)
+console.log(positive_value)
+console.log(negative_value)
+console.log(neutral_value)
+
+  // Function to calculate percentage of the 'valueType'...
+  function percentageRatioCalc(valueType, percentage){
+    return ((percentage/100) * valueType).toFixed(0)
+  }
+
+  let perCalc = percentageRatioCalc;
+
   var data = google.visualization.arrayToDataTable([
     ['Occurences', 'Positive','Neutral','Negative' ],
     ['0',0,0,0],
-    ['1462.2',684.5,361.4,416.3],
-    ['2924.4',1369,722.8,832.6],
-    ['4386.6',2053.5,1084.2,1248.9],
-    ['5848.8',2738,1445.6,1665.2],
-    ['7311',3422.5,1807,2081.5],
-    ['8773.2',4107,2168.4,2497.8],
-    ['10235.4',4791.5,2530.8,2914.1],
-    ['11697.6',5476,2892.2,3330.4],
-    ['13159.8',6160.5,3253.6,3746.7],
-    ['14622	',6845,3614,4163],
+    [perCalc(occurences_value, 10),perCalc(positive_value,10),perCalc(negative_value,10),perCalc(neutral_value,10)],
+    [perCalc(occurences_value, 20),perCalc(positive_value,20),perCalc(negative_value,20),perCalc(neutral_value,20)],
+    [perCalc(occurences_value, 30),perCalc(positive_value,30),perCalc(negative_value,30),perCalc(neutral_value,30)],
+    [perCalc(occurences_value, 40),perCalc(positive_value,40),perCalc(negative_value,40),perCalc(neutral_value,40)],
+    [perCalc(occurences_value, 50),perCalc(positive_value,50),perCalc(negative_value,50),perCalc(neutral_value,50)],
+    [perCalc(occurences_value, 60),perCalc(positive_value,60),perCalc(negative_value,60),perCalc(neutral_value,60)],
+    [perCalc(occurences_value, 70),perCalc(positive_value,70),perCalc(negative_value,70),perCalc(neutral_value,70)],
+    [perCalc(occurences_value, 80),perCalc(positive_value,80),perCalc(negative_value,80),perCalc(neutral_value,80)],
+    [perCalc(occurences_value, 90),perCalc(positive_value,90),perCalc(negative_value,90),perCalc(neutral_value,90)],
+    [perCalc(occurences_value, 100),perCalc(positive_value,100),perCalc(negative_value,100),perCalc(neutral_value,100)],
 
   ]);
 
