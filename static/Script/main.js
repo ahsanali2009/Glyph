@@ -15,10 +15,6 @@ let positive_value = (emojiPropertiesData_toArray[1].replace(/'/g,""))
 let negative_value = (emojiPropertiesData_toArray[2].replace(/'/g,"")) 
 let neutral_value = (emojiPropertiesData_toArray[3].replace(/'/g,"")) 
 
-console.log(occurences_value)
-console.log(positive_value)
-console.log(negative_value)
-console.log(neutral_value)
 
   // Function to calculate percentage of the 'valueType'...
   function percentageRatioCalc(valueType, percentage){
